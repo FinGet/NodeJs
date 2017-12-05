@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/FinGet/NodeJs#readme",
   "dependencies": {
+    "formidable": "^1.1.1",
     "mockjs": "^1.0.1-beta3"
   }
 }
