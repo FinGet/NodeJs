@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/FinGet/NodeJs/issues"
   },
-  "homepage": "https://github.com/FinGet/NodeJs#readme"
+  "homepage": "https://github.com/FinGet/NodeJs#readme",
+  "dependencies": {
+    "mockjs": "^1.0.1-beta3"
+  }
 }
