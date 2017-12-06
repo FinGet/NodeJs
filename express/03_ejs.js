@@ -3,6 +3,7 @@ var express = require('express'),
 
 var app = express();
 
+// app.set("views", 'a'); // 可以设置自己想存放ejs文件的文件夹a
 app.set('view engine','ejs');
 
 app.get('/', function (req,res) {
