@@ -79,6 +79,8 @@ exports = {
 - Buffer、process、console
 - timer
 
+----------
+
 # Express 框架
 
 >Express框架是后台的Node框架，所以和jQuery、zepto、yui、bootstrap都不一个东西。
@@ -93,3 +95,51 @@ exports = {
 - 不能集中精力写业务，要考虑很多其他的东西
 
 >更多代码演示 查看express文件夹的详细demo
+
+----------
+
+# Mongodb
+
+- 安装mongodb
+>进入mongodb官网直接下载与自己系统对应的安装包，一直下一步
+- 配置环境变量
+>在环境变量path后加上C:\Program Files\MongoDB\Server\3.4\bin
+
+![](https://i.imgur.com/9wQK9yV.png)
+- 启动数据库
+>`mongod --dbpath c:/Mongodb/data` (任意路径)
+- 命令行，使用mongodb
+>`mongo`
+
+![](https://i.imgur.com/5RDzu2B.png)
+
+### 常用命令
+- `show dbs` // 查看数据库
+- `use  集合名` // 使用数据库(如果不存在这个集合则会新建一个)
+ ##### 插入一条数据 `insert`
+![插入数据](https://i.imgur.com/Pi7yv1c.png)
+- `show collections`查看当前数据库中的所有集合
+ ##### 查找数据
+- `db.xxxx.find()` 查找某一集合下所有数据`db.student.find()`
+![查找数据](https://i.imgur.com/zTbIwct.png)
+- `db.student.find({'name':'xiaoming'})`查找`name==xiaoming`的数据
+- `db.student.find({"score.shuxue":70})` // 精准匹配
+- `db.student.find({"score.shuxue":70 , "age":12})` // 多条件查询 与
+- `db.student.find({"score.yuwen":{$gt:50}})` // 大于条件
+- `db.student.find({$or:[{"age":9},{"age":11}]})` // 或
+ ##### 修改数据
+- `db.student.update({"score.shuxue":70},{$set:{"age":33}})` // 查找数学成绩是70，把年龄更改为33岁
+- `db.student.update({"sex":"男"},{$set:{"age":33}},{multi: true})` // 更改所有匹配项目
+- `db.student.update({"name":"小明"},{"name":"大明","age":16})`
+ ##### 删除数据
+- `db.dropDatabase()` //删除数据库
+- `db.collection.drop() ` // 删除集合
+- `db.restaurants.remove( { "borough": "Queens" }, { justOne: true } )` // `{ justOne: true }`只删一个 
+ ##### 导入数据
+>`mongoimport --db test --collection restaurants --drop --file primer-dataset.json`
+
+- `--db tset` 想往哪个数据库里导入
+- `--collection restaurants` 想往哪个数据库导入
+- `--drop` 把集合清空
+- `--file primer-dataset.json` 哪个文件
+
